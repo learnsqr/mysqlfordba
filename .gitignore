@@ -71,7 +71,7 @@ TestConfiguration.php
 # Bower Public #
 ################
 public/assets/vendor/
-assets/vendor/
+
 
 # Third-Part Binaries #
 #######################

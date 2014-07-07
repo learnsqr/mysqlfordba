@@ -52,8 +52,8 @@
                 color: #68B604;
             }
 
-            .doctrine-color {
-                color: #FC6A31;
+            .mysql-color {
+                color: #e97b00;
             }
 
             .doctrine-bg {
@@ -88,7 +88,7 @@
 				
 				<section>
                     <h1>
-                        <span class="doctrine-color">MySQL</span>
+                        <span class="mysql-color">MySQL</span>
                         <span class="zf-color">for DBA's</span>
                     </h1>
                     <h1>
@@ -115,11 +115,6 @@
                 </section>
                 <section>
                     <h2>
-                        <img
-                            src="../assets/img/avatar.jpg"
-                            alt="Agustín Calderón"
-                            style="width: 70px; margin: 0; image-rendering: -webkit-optimize-contrast; image-rendering: -moz-crisp-edges;"
-                        />
                         <a href="http://agustincl.github.com/" target="_blank" rel="me">Agustín F. Calderón M.</a>
                     </h2>
                 </section>
@@ -141,16 +136,243 @@
                 
 
                 <section>
-                    <h2>Keep your <span class="doctrine-color">object graph</span> consistent</h2>
+                    <h2><span class="mysql-color">MySQL</span> for DBA's</h2>
                     <p class="fragment">
-                        An <span class="doctrine-color">ObjectManager</span> works under the assumption that managed
-                        objects are valid!
+                        <span class="mysql-color">Dia 1</span> 
+                        Introduction to MySQL - 
+                        Arquitectura - 
+						Administración del Sistema - 
+						Configuración de Servidor
                     </p>
                     <p class="fragment">
-                        Assign values to your entities only when data is valid!
+                        <span class="mysql-color">Dia 2</span> 
+                        Clientes y herramientas - 
+						Tipos de datos - 
+						Obtener metadatas - 
+						Transacciones y Bloqueo 
                     </p>
                 </section>
+                
+                <section>
+                    <h2><span class="mysql-color">MySQL</span> for DBA's</h2>
+                    <p class="fragment">
+                        <span class="mysql-color">Dia 3</span> 
+                        Motor de Almacenamiento InnoDB - 
+						Otros Motores de Almacenamiento - 
+						Particiones - 
+						Administración de Usuarios 
+                    </p>
+                    <p class="fragment">
+                        <span class="mysql-color">Dia 4</span> 
+                        Seguridad
+						Mantenimiento de Tablas
+						Exportar e Importar
+						Programación dentro de MySQL
+						Vistas
+                    </p>
+                    <p class="fragment">
+                        <span class="mysql-color">Dia 5</span> 
+                        Backup y Recuperación - 
+						Introducción a la Replicación - 
+						Introducción a "Performance Tuning" - 
+						Conclusiones
+                    </p>
+                </section>
+				
+				<section data-background="#007777">
+                    <h2><span class="mysql-color">Introducción</span></h2>
+                    <div class="fragment">
+                    <p class="fragment">Gestor de Bases de Datos</p>
+					<p class="fragment">Base de datos opensource mas popular </p>
+					<p class="fragment">70,000 descargas diarias</p>
+					<p class="fragment">En constante desarrollo desde 1995</p>
+					</div>                   
+                </section>
+				
+				
+				<section data-background="#007777">
+                    <h2><span class="mysql-color">Arquitectura</span></h2>
+                    <div class="fragment">
+                    <p class="fragment">MySQL modelo cliente/servidor</p>
+                    <img class="fragment"
+                        src="../assets/mysql/img/architecture.jpg"
+                        alt="Architecture"
+                        
+                        style="margin: 15px;"
+                    />  
+                    </div>                    
+                </section>
+				
+				<section>
+                    <h2><span class="mysql-color">Línea de comandos - Cliente</span></h2>
+                    <p class="fragment"><span class="mysql-color">mysql</span>: Emitir consultas y ver los resultados.</p>
+                    <p class="fragment"><span class="mysql-color">mysqladmin</span>: Administrar el servidor.</p>
+                    <p class="fragment"><span class="mysql-color">mysqlcheck</span>: Comprobar la integridad de las tablas de la base de datos.</p>
+                    <p class="fragment"><span class="mysql-color">mysqldump</span>: Crear copias de seguridad.</p>
+                    <p class="fragment"><span class="mysql-color">mysqlimport</span>: Importar archivos de datos de texto.</p>
+                    <p class="fragment"><span class="mysql-color">mysqlshow</span>: Mostrar bases de datos, tablas y columnas.</p>                                   
+                </section>
+				
+				<section>
+                    <h2><span class="mysql-color">Línea de comandos - Administración y Utilidades</span></h2>
+                    <p class="fragment"><span class="mysql-color">myisamchk</span>: Revisar y reparar tablas MyISAM.</p>
+                    <p class="fragment"><span class="mysql-color">myisampack</span>: Crear tablas de sólo lectura MyISAM comprimidas.</p>
+                    <p class="fragment"><span class="mysql-color">innochecksum</span>: Revisar el tablaspace de InnoDB fuera de línea.</p>
+                    <p class="fragment"><span class="mysql-color">mysqlaccess</span>: Revisar privilegios de acceso.</p>
+                    <p class="fragment"><span class="mysql-color">mysqldumpslow</span>: Resumen de los logs de consultas lentas.</p>                               
+                </section>
+				
+				<section>
+                    <h2><span class="mysql-color">MySQL SERVER</span></h2>
+                    <p class="fragment"><span class="mysql-color">mysqld</span>: Servidor.</p>
+                    <p class="fragment">No es lo mismo que un "host"</p>
+                    <p class="fragment">Es un proceso único y es multi-hilo</p>
+                    <p class="fragment">Administra el acceso a bases de datos en el disco y en la memoria </p>
+                    <p class="fragment">Soporta conexiones de cliente simultáneas </p>
+                    <p class="fragment">Soporta múltiples motores de almacenamiento  </p>
+                    <p class="fragment">Soporta ambas tablas transaccionales y no transaccionales  </p>
+                    <p class="fragment">Utiliza la memoria en forma de almacenamiento en caché y Buffering </p>                              
+                </section>
+                
+                <section>
+                    <h2><span class="mysql-color">Proceso Servidor</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/server_process.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+                
+                <section>
+                    <h2><span class="mysql-color">Capa de Conección</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/connection_layer.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+                
+                <section>
+                    <h2><span class="mysql-color">Protocolos de Comunicación</span></h2>
+                    <p>TCP/IP - Local, Remoto - Todos</p>
+                    <p>UNIX socket file - Local - Sólo UNIX</p>
+                    <p>Shared memory - Local - Sólo Windows</p>
+                    <p>Named pipes - Local - Sólo Windows</p>
+                </section>
+                
+                
+                <section>
+                    <h2><span class="mysql-color">Capa de SQL</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/sql_layer.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+ 
+ 				<section>
+                    <h2><span class="mysql-color">Proceso SQL</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/sql_statement_processing.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
 
+				<section>
+                    <h2><span class="mysql-color">Capa de Almacenamiento</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/storage_layer.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+                
+                <section>
+                    <h2><span class="mysql-color">Motores de Almacenamiento</span></h2>
+	                <p class="fragment">Un motor de almacenamiento es un componente de servidor que ofrece una interfaz entre el cliente y el servidor (a través de sentencias SQL).</p> 
+					<p class="fragment mysql-color">Motores de almacenamiento se utilizan para:</p> 
+					
+					<div class="fragment">
+					<p>Guardar datos </p>
+					<p>Recuperar datos </p>
+					<p>Encontrar datos a través de un índice </p>
+					<p>Procesamiento de dos niveles: Nivel superior incluye analizador de SQL y el optimizador; Bajo nivel se compone de un conjunto de motores de almacenamiento.</p>
+					</div>
+				</section>
+
+                
+                <section>
+                    <h2><span class="mysql-color">Espacio en Disco</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/disk_space.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+                
+                <section>
+                    <h2><span class="mysql-color">Estructuras de Memoria</span></h2>
+                    
+                    <img class="fragment"
+                        src="../assets/mysql/img/memory_structures.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+                
+                
+				<section>
+                    <h2><span class="mysql-color">Como utiliza MySQL la memoria</span></h2>
+	                <p class="fragment mysql-color">Global</p> 
+		                <div class="fragment">
+		                <p>Asignada una vez </p>
+						<p>Compartida por el proceso del servidor y sus hilos</p>
+						</div>
+					<p class="fragment mysql-color">Sesión</p> 
+						<div class="fragment">
+						<p>Distribuidos para cada hilo</p> 
+						<p>Dinámicamente asignada y desasignada </p>
+						<p>Se utiliza para el manejo de resultados de la consulta</p> 
+						<p>Tamaños de búfer por sesión</p>
+						</div>					
+				</section>
+
+
+				<section data-background="#007777">
+                    <h2><span class="mysql-color">Administración del Sistema</span></h2>
+                    <div class="fragment">
+                    <p>Instalar el servidor MySQL </p>
+					<p>Describir la estructura de archivos después de la instalación del servidor MySQL</p> 
+					<p>Iniciar y detener el servidor MySQL</p> 
+					<p>Actualizar MySQL </p>
+					<p>Ejecutar múltiples servidores MySQL en un único host</p>
+					</div>           
+                </section>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+				
                 <section>
                     <h2>Questions?</h2>
                     <p>Send me a tweet <a href="https://twitter.com/agustincl" target="_blank">@Agustincl</a>!</p>

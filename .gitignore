@@ -53,8 +53,6 @@ composer.lock
 
 # Configuration files #
 #######################
-vendor/
-public/vendor/
 config/development.config.php
 config/autoload/local.php
 config/autoload/*.local.php
@@ -70,7 +68,7 @@ TestConfiguration.php
 
 # Bower Public #
 ################
-public/assets/vendor/
+# public/assets/vendor/
 
 # Third-Part Binaries #
 #######################

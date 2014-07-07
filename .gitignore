@@ -72,7 +72,6 @@ TestConfiguration.php
 ################
 public/assets/vendor/
 
-
 # Third-Part Binaries #
 #######################
 vendor/bin

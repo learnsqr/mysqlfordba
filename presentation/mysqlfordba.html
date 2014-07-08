@@ -179,16 +179,69 @@
                     </p>
                 </section>
 				
-				<section data-background="#007777">
-                    <h2><span class="mysql-color">Introducción</span></h2>
-                    <div class="fragment">
-                    <p class="fragment">Gestor de Bases de Datos</p>
-					<p class="fragment">Base de datos opensource mas popular </p>
-					<p class="fragment">70,000 descargas diarias</p>
-					<p class="fragment">En constante desarrollo desde 1995</p>
-					</div>                   
-                </section>
+<!-- ************************************ INTRODUCCION ************************************************** -->
+		
+		
+<section>  
+        
+<section data-markdown >
+<script type="text/template">
+<!-- .slide: data-background="#007777" -->
+## <span class="mysql-color">Introducción</span>
+Gestor de Bases de Datos  
+Base de datos opensource mas popular  
+70,000 descargas diarias  
+En constante desarrollo desde 1995  
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+
+## <span class="mysql-color">Oracle compra MySQL</span>
+Sun Microsystems acquired MySQL in 2008.  
+Oracle acquired Sun Microsystems in 2010.  
+
+---
+### These acquisitions give MySQL:  
+1. The industry's largest dedicated MySQL engineering and support staff
+2. Oracle premium lifetime support services  
+3. All this is combined with strong open-source community support.  
+</script>
+</section>
+
+
+<section data-markdown >
+<script type="text/template">
+## MySQL Database Server Editions
+<img 
+     src="../assets/mysql/img/server_editions.jpg"
+     alt="Server Process"
+     style="margin: 15px;"
+/> 
+</script>
+</section>
+
+<section data-markdown >
+<script type="text/template">
+## MySQL Tools
+- Graphical user interfaces to your MySQL database  
+
+- MySQL Enterprise Monitor 
+ -   Web application that reduces down time, tightens security, and increases throughput
+ -   Includes MySQL Query Analyzer
+
+- MySQL Enterprise Backup
+ -   Online hot, nonblocking backups
+
+- MySQL Workbench 
+ -  Visual database design tool that is used to efficiently design, manage, and document databases
+</script>
+</section>
+       		
+</section>
 				
+				<!-- ************************************ ARQUITECTURA ************************************************** -->
 				
 				<section data-background="#007777">
                     <h2><span class="mysql-color">Arquitectura</span></h2>
@@ -196,8 +249,7 @@
                     <p class="fragment">MySQL modelo cliente/servidor</p>
                     <img class="fragment"
                         src="../assets/mysql/img/architecture.jpg"
-                        alt="Architecture"
-                        
+                        alt="Architecture"                        
                         style="margin: 15px;"
                     />  
                     </div>                    
@@ -219,7 +271,7 @@
                     <p class="fragment"><span class="mysql-color">myisampack</span>: Crear tablas de sólo lectura MyISAM comprimidas.</p>
                     <p class="fragment"><span class="mysql-color">innochecksum</span>: Revisar el tablaspace de InnoDB fuera de línea.</p>
                     <p class="fragment"><span class="mysql-color">mysqlaccess</span>: Revisar privilegios de acceso.</p>
-                    <p class="fragment"><span class="mysql-color">mysqldumpslow</span>: Resumen de los logs de consultas lentas.</p>                               
+                    <p class="fragment"><span class="mysql-color">mysqldumpslow</span>: Resumen de los logs de consultas lentas (perl).</p>                               
                 </section>
 				
 				<section>
@@ -262,7 +314,7 @@
                     <p>Named pipes - Local - Sólo Windows</p>
                 </section>
                 
-                
+                <section>
                 <section>
                     <h2><span class="mysql-color">Capa de SQL</span></h2>
                     
@@ -272,6 +324,20 @@
                         style="margin: 15px;"
                     />                   
                 </section>
+<section data-markdown >
+<script type="text/template">
+## SQL Layer
+- Authorization and Parser: Validates the correct syntax, and then authorization verifies that the connected user is allowed to run a particular query
+- Optimizer: Creates the execution plan for each query, which is a step-by-step instruction set on how to execute the query in the most optimal way. Determining which indexes are to be used, and in which order to process the tables, is the most important part of this step.
+- Query execution: Fulfills the execution plan for each query
+- Query cache: Optionally configurable query cache that can be used to memorize (and
+immediately return) executed queries and results
+- Query logging: Can be enabled to track executed queries
+Note: The diagram in the slide represents how the MySQL server processes an SQL statement.
+</script>
+</section>
+</section>
+
  
  				<section>
                     <h2><span class="mysql-color">Proceso SQL</span></h2>
@@ -283,6 +349,7 @@
                     />                   
                 </section>
 
+<section>
 				<section>
                     <h2><span class="mysql-color">Capa de Almacenamiento</span></h2>
                     
@@ -292,7 +359,18 @@
                         style="margin: 15px;"
                     />                   
                 </section>
+                <section data-markdown >
+<script type="text/template">
+## Storage engine characteristics
+- InnoDB: Provides transactions and is thus useful for a read+write mix of queries. InnoDB is the default multi-purpose (read-intensive, read/write, transactional) storage engine for MySQL tables.
+- MyISAM: Useful for mostly read and little update of data
+- MEMORY: Stores all data in memory
+- NDB: Used by MySQL Cluster to provide redundant scalable topology for highly available data
+</script>
+</section>
+</section>
                 
+<section>
                 <section>
                     <h2><span class="mysql-color">Motores de Almacenamiento</span></h2>
 	                <p class="fragment">Un motor de almacenamiento es un componente de servidor que ofrece una interfaz entre el cliente y el servidor (a través de sentencias SQL).</p> 
@@ -305,6 +383,16 @@
 					<p>Procesamiento de dos niveles: Nivel superior incluye analizador de SQL y el optimizador; Bajo nivel se compone de un conjunto de motores de almacenamiento.</p>
 					</div>
 				</section>
+				<section data-markdown >
+<script type="text/template">
+## SQL not dependent on the storage engine exceptions
+- CREATE TABLE has an ENGINE option that specifies which storage engine to use on a per-table basis.
+- ALTER TABLE has an ENGINE option that enables the conversion of a table to use a different storage engine.
+- Some index types are available only for particular storage engines. For example, only the MyISAM engine supports full-text or spatial indexes.
+- COMMIT and ROLLBACK operations affect only tables managed by transactional storage engines such as InnoDB and NDB.
+</script>
+</section>
+</section>
 
                 
                 <section>
@@ -316,7 +404,7 @@
                         style="margin: 15px;"
                     />                   
                 </section>
-                
+<section>               
                 <section>
                     <h2><span class="mysql-color">Estructuras de Memoria</span></h2>
                     
@@ -326,6 +414,15 @@
                         style="margin: 15px;"
                     />                   
                 </section>
+                <section data-markdown >
+<script type="text/template">
+## The server allocates memory for many kinds of data as it runs
+- Thread cache: Threads are used in MySQL (and other programs) to split the execution of the application into two or more simultaneous running tasks. An individual thread is created for each client that connects to the MySQL server to handle that connection.
+- Buffers and caches: Buffers and caches provide a data management subsystem and support fast-access items such as grant table buffers, key buffers (for MyISAM index blocks), and table open caches that hold descriptors for open tables. A query cache is also used to speed up the processing of queries that are issued repeatedly.
+- MEMORY tables: The MEMORY storage engine uses the main-memory as principal data store. Other storage engines may also use main memory for data storage, but MEMORY is unique in being designed not to store data on disk.
+</script>
+</section>
+</section>
                 
                 
 				<section>
@@ -343,6 +440,9 @@
 						<p>Tamaños de búfer por sesión</p>
 						</div>					
 				</section>
+
+
+<!-- ************************************ ADMINISTRACION ************************************************** -->
 
 
 				<section data-background="#007777">

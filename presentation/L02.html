@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>MySQL for DBA's</title>
+
+		<meta name="description" content="MySQL fro DBA's - Practical course for mastering DBA over MySQL">
+		<meta name="author" content="Agustín F. Calderón M.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../assets/vendor/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../assets/vendor/reveal.js/css/theme/moon.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../assets/vendor/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '../assets/vendor/reveal.js/css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<style type="text/css">
+            /* overrides */
+            /*body {
+                background: #040E27;
+                background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #040E27 100%);
+                background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #040E27));
+                background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #040E27 100%);
+                background: -o-radial-gradient(center, circle cover, #555a5f 0%, #040E27 100%);
+                background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #040E27 100%);
+                background: radial-gradient(center, circle cover, #555a5f 0%, #040E27 100%);
+                background-color: #040E27;
+            }*/
+
+            .zf-color {
+                color: #68B604;
+            }
+
+            .mysql-color {
+                color: #e97b00;
+            }
+
+            .doctrine-bg {
+                background-color: #040E27;
+            }
+
+            .reveal section img {
+                border: 0;
+                background: none;
+                box-shadow: 0 0 #000;
+            }
+
+            .reveal pre {
+                width: 100%;
+                font-size: 0.68em;
+            }
+
+            .reveal pre code {
+                max-height: 600px;
+            }
+            
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+
+        </style>
+        
+        
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+<!-- ************************************ TITLE ************************************************** -->
+<section>
+<h1>
+<span class="mysql-color">Arquitectura</span>
+
+</h1>
+<h1>
+<img
+ src="../assets/img/Oracle_logo.svg"
+        alt="Doctrine Project" border="0"
+        height="50px"
+        style="margin-bottom: -50px; "
+/>
++
+<img
+    src="../assets/img/mysql.svg"
+    alt="Zend Framework 2"
+    border="0"
+    height="100px"
+    style="margin-bottom: -50px;"
+/>
+    </h1>
+</section>
+<!-- ************************************ TEMPLATE ************************************************** -->		
+<!--
+<section>         
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Introducción</span>
+Gestor de Bases de Datos  
+Base de datos opensource mas popular  
+70,000 descargas diarias  
+En constante desarrollo desde 1995  
+</script>
+</section>
+-->
+<!-- ************************************ BEGIN ************************************************** -->	
+              
+<!-- ************************************ NEXT ************************************************** -->	              
+
+				
+				<!-- ************************************ ARQUITECTURA ************************************************** -->
+				
+				<section>
+                    <h2><span class="mysql-color">Arquitectura</span></h2>
+                    <div>
+                    <p>MySQL modelo cliente/servidor</p>
+                    <img
+                        src="../assets/mysql/img/architecture.jpg"
+                        alt="Architecture"                        
+                        style="margin: 15px;"
+                    />  
+                    </div>                    
+                </section>
+				
+<section>
+<section data-markdown >
+<script type="text/template">
+##<span class="mysql-color">Programas Cliente</span>
+- <span class="mysql-color">mysql</span>: Emitir consultas y ver los resultados.
+- <span class="mysql-color">mysqladmin</span>: Administrar el servidor.
+- <span class="mysql-color">mysqlcheck</span>: Comprobar la integridad de las tablas de la base de datos.
+- <span class="mysql-color">mysqldump</span>: Crear copias de seguridad.
+- <span class="mysql-color">mysqlimport</span>: Importar archivos de datos de texto.
+- <span class="mysql-color">mysqlshow</span>: Mostrar bases de datos, tablas y columnas. 
+- <span class="mysql-color">mysqlslap</span>: Emular carga en el cliente.                                   
+</script>
+</section>
+
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Administración y Utilidades</span>
+- <span class="mysql-color">myisamchk</span>: Revisar y reparar tablas MyISAM.
+- <span class="mysql-color">myisampack</span>: Crear tablas de sólo lectura MyISAM comprimidas.
+- <span class="mysql-color">innochecksum</span>: Revisar el tablaspace de InnoDB offline.
+- <span class="mysql-color">mysqlaccess</span>: Revisar privilegios de acceso.
+- <span class="mysql-color">mysqldumpslow</span>: Resumen de los logs de consultas lentas (perl).                               
+</script>
+</section>
+				
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">MySQL SERVER</span>
+- <span class="mysql-color">mysqld</span>: Servidor.
+- No es lo mismo que un "host"
+- Es un proceso único y es multi-hilo
+- Administra el acceso a bases de datos en el disco y en la memoria
+- Soporta conexiones de cliente simultáneas
+- Soporta múltiples motores de almacenamiento
+- Soporta tablas transaccionales y no transaccionales
+- Utiliza la memoria en forma de caché y buffering                              
+</script>
+</section>
+</section>                
+<section>
+<section>
+    <h2><span class="mysql-color">Proceso Servidor</span></h2>
+    
+    <img
+        src="../assets/mysql/img/server_process.jpg"
+        alt="Server Process"
+        style="margin: 15px;"
+    />                   
+</section>
+                
+<section>
+    <h2><span class="mysql-color">Capa de Conección</span></h2>
+    
+    <img
+        src="../assets/mysql/img/connection_layer.jpg"
+        alt="Server Process"
+        style="margin: 15px;"
+    />                   
+</section>
+<section>
+    <h2><span class="mysql-color">Capa de SQL</span></h2>
+    
+    <img
+        src="../assets/mysql/img/sql_layer.jpg"
+        alt="Server Process"
+        style="margin: 15px;"
+    />                   
+</section>
+</section>                      
+<section>
+<section data-markdown >
+<script type="text/template">
+##<span class="mysql-color">Protocolos de Comunicación</span>
+
+| Protocol        | Connection           | Operating System  | 
+| ------------- |:-------------:| -----:|
+| TCP/IP     	| Local, Remoto | Todos |
+| UNIX socket file      | Local      |   Sólo UNIX |
+| Shared memory | Local      |    Sólo Windows | 
+| Named pipes 	| Local      |    Sólo Windows | 
+</script>
+</section>
+                
+           
+                
+<section data-markdown >
+<script type="text/template">
+## SQL Layer
+- <span class="mysql-color">Authorization and Parser</span>: Validates the correct syntax, and then authorization verifies that the connected user is allowed to run a particular query
+- <span class="mysql-color">Optimizer</span>: Creates the execution plan for each query, which is a step-by-step instruction set on how to execute the query in the most optimal way. Determining which indexes are to be used, and in which order to process the tables, is the most important part of this step.
+- <span class="mysql-color">Query execution</span>: Fulfills the execution plan for each query
+- <span class="mysql-color">Query cache</span>: Optionally configurable query cache that can be used to memorize (and
+immediately return) executed queries and results
+- <span class="mysql-color">Query logging</span>: Can be enabled to track executed queries
+Note: The diagram in the slide represents how the MySQL server processes an SQL statement.
+</script>
+</section>
+</section>
+
+ 
+ 				<section>
+                    <h2><span class="mysql-color">Proceso SQL</span></h2>
+                    
+                    <img
+                        src="../assets/mysql/img/sql_statement_processing.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+
+<section>
+				<section>
+                    <h2><span class="mysql-color">Capa de Almacenamiento</span></h2>
+                    
+                    <img
+                        src="../assets/mysql/img/storage_layer.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+
+<section data-markdown >
+<script type="text/template">
+## Storage engine characteristics
+- <span class="mysql-color">InnoDB</span>: Provides transactions, full-text indexing, and foreign key constraints. Is the default multi-purpose (read-intensive, read/write, transactional) storage engine for MySQL tables.
+- <span class="mysql-color">MyISAM</span>: Useful for mostly read and little update of data
+- <span class="mysql-color">MEMORY</span>: Stores all data in memory
+- <span class="mysql-color">NDB</span>: Used by MySQL Cluster to provide redundant scalable topology for highly available data
+</script>
+</section>
+</section>
+                
+<section>
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Motores de Almacenamiento</span>
+- Componente de servidor que ofrece una interfaz entre el cliente y el servidor (a través de sentencias SQL). 
+ - Guardar datos
+ - Recuperar datos
+ - Encontrar datos a través de un índice
+- Procesamiento de dos niveles: Nivel superior incluye analizador de SQL y el optimizador; 
+- Bajo nivel se compone de un conjunto de motores de almacenamiento.
+</script>
+</section>
+				
+				
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Storage engine dependant commands</span>
+- CREATE TABLE has an ENGINE option that specifies which storage engine to use on a per-table basis.
+- ALTER TABLE has an ENGINE option that enables the conversion of a table to use a different storage engine.
+- Some index types are available only for particular storage engines. For example, only the InnoDB and MyISAM engine supports full-text indexes.
+- COMMIT and ROLLBACK operations affect only tables managed by transactional storage engines such as InnoDB and NDB.
+</script>
+</section>
+
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Features Dependent on Storage Engine</span>
+- Storage medium
+- Transactional capabilities
+- Locking
+- Backup and recovery
+- Optimization
+- Special features
+ - Full-text search
+ - Referential integrity
+ - Spatial data handling  
+
+<aside class="notes">
+Notes:
+- Storage medium: A table storage engine can store data on disk, in memory, or over a network.  
+- Transactional capabilities: Some storage engines support full ACID transactional capability, while others may have no transactional support.  
+- Locking: Storage engines may use different locking granularity (such as table-level or row-level locks) and mechanisms to provide consistency with concurrent transactions.  
+- Backup and recovery: May be affected by how the storage engine stores and operates the data  
+- Optimization: Different indexing implementations may affect optimization. Storage engines use internal caches, buffers, and memory in different ways to optimize performance.  
+- Special features: Certain engine types have features that provide full-text search, referential integrity, and the ability to handle spatial data.  
+- The optimizer may need to make different choices depending on the storage engine, but this is all handled through a standardized interface (API) that each storage engine supports.  
+
+</aside>
+</script>
+</section>
+</section>
+                
+                <section>
+                    <h2><span class="mysql-color">Espacio en Disco</span></h2>
+                    
+                    <img
+                        src="../assets/mysql/img/disk_space.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+<section>               
+                <section>
+                    <h2><span class="mysql-color">Estructuras de Memoria</span></h2>
+                    
+                    <img
+                        src="../assets/mysql/img/memory_structures.jpg"
+                        alt="Server Process"
+                        style="margin: 15px;"
+                    />                   
+                </section>
+                <section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Memory Allocation</span>
+- <span class="mysql-color">Thread cache</span>: Split the execution into two or more simultaneous running tasks. An individual thread is created for each client that connects to the MySQL server to handle that connection.
+- <span class="mysql-color">Buffers and caches</span>: Provide a data management subsystem and support fast-access items such as grant table buffers, key buffers (for MyISAM index blocks), and table open caches that hold descriptors for open tables. A query cache is also used to speed up the processing of queries that are issued repeatedly.
+- <span class="mysql-color">MEMORY tables</span>: MEMORY storage engine uses the main-memory as principal data store. Other storage engines may also use main memory for data storage, but MEMORY is unique in being designed not to store data on disk.
+</script>
+</section>
+               
+<section data-markdown >
+<script type="text/template">
+## <span class="mysql-color">Como utiliza MySQL la memoria</span>
+- <span class="mysql-color">Global</span>      
+ - Asignada una vez
+ - Compartida por el proceso del servidor y sus hilos
+- <span class="mysql-color">Sesión</span>
+ - Distribuidos para cada hilo
+ - Dinámicamente asignada y desasignada
+ - Se utiliza para el manejo de resultados de la consulta 
+ - Tamaños de búfer por sesión					
+</script>
+</section>
+
+</section>
+ 
+
+<!-- ************************************ END ************************************************** -->
+<!-- ************************************ END ************************************************** -->
+
+
+			</div>
+
+		</div>
+
+		<script src="../assets/vendor/reveal.js/lib/js/head.min.js"></script>
+		<script src="../assets/vendor/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../assets/vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../assets/vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../assets/vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../assets/vendor/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../assets/vendor/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../assets/vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -74,6 +74,25 @@
             .reveal pre code {
                 max-height: 600px;
             }
+            
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+
         </style>
         
         
@@ -85,132 +104,109 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				
-				<section>
-                    <h1>
-                        <span class="mysql-color">MySQL</span>
-                        <span class="zf-color">for DBA's</span>
-                    </h1>
-                    <h1>
-                        <img
-                            src="../assets/img/Oracle_logo.svg"
-                            alt="Doctrine Project" border="0"
-                            height="50px"
-                            style="margin-bottom: -50px; "
-                        />
-                        +
-                        <img
-                            src="../assets/img/mysql.svg"
-                            alt="Zend Framework 2"
-                            border="0"
-                            height="100px"
-                            style="margin-bottom: -50px;"
-                        />
-                    </h1>
-                </section>
-                <section>
-                    <h1>
-                        Hello!
-                    </h1>
-                </section>
-                <section>
-                    <h2>
-                        <a href="http://agustincl.github.com/" target="_blank" rel="me">Agustín F. Calderón M.</a>
-                    </h2>
-                </section>
-                <section>
-                    <img
-                        src="../assets/img/gh.svg"
-                        alt="Agustincl on Github"
-                        height="70px"
-                        style="margin: 15px;"
-                        />
-                    <img
-                        src="../assets/img/twitter.svg"
-                        alt="Agustincl on Twitter"
-                        height="65px"
-                        style="margin: 15px;"
-                    />
-                    <h2><a href="http://twitter.com/agustincl" target="_blank">Agustincl</a></h2>
-                </section>
-                
-                
-<!-- ************************************ INTRODUCCION ************************************************** -->             
 
+<!-- ************************************ TITLE ************************************************** -->
 <section>
+<h1>
+<span class="mysql-color">Introduction</span>
+
+</h1>
+<h1>
+<img
+ src="../assets/img/Oracle_logo.svg"
+        alt="Doctrine Project" border="0"
+        height="50px"
+        style="margin-bottom: -50px; "
+/>
++
+<img
+    src="../assets/img/mysql.svg"
+    alt="Zend Framework 2"
+    border="0"
+    height="100px"
+    style="margin-bottom: -50px;"
+/>
+    </h1>
+</section>
+<!-- ************************************ TEMPLATE ************************************************** -->		
+<!--
+<section>         
 <section data-markdown >
 <script type="text/template">
-##<span class="mysql-color">Map Dia 1</span>
-- Introduction to MySQL 
-- Arquitectura
-- Administración del Sistema 
-- Configuración de Servidor
+## <span class="mysql-color">Introducción</span>
+Gestor de Bases de Datos  
+Base de datos opensource mas popular  
+70,000 descargas diarias  
+En constante desarrollo desde 1995  
 </script>
 </section>
+-->
+<!-- ************************************ BEGIN ************************************************** -->	
+              
+<!-- ************************************ NEXT ************************************************** -->	              
+
 <section data-markdown >
 <script type="text/template">
-##<span class="mysql-color">Map Dia 2</span>
-- Clientes y herramientas
-- Tipos de datos
-- Obtener metadatas
-- Transacciones y Bloqueo
+## <span class="mysql-color">Introducción</span>
+Gestor de Bases de Datos  
+Base de datos opensource mas popular  
+70,000 descargas diarias  
+En constante desarrollo desde 1995  
+</script>
+</section>			
+
+
+<section data-markdown>
+<script type="text/template">
+
+## <span class="mysql-color">Oracle compra MySQL</span>
+Sun Microsystems acquired MySQL in 2008.  
+Oracle acquired Sun Microsystems in 2010.  
+
+---
+### These acquisitions give MySQL:  
+1. The industry's largest dedicated MySQL engineering and support staff
+2. Oracle premium lifetime support services  
+3. All this is combined with strong open-source community support.  
 </script>
 </section>
+
+
 <section data-markdown >
 <script type="text/template">
-##<span class="mysql-color">Map Dia 3</span>
-- Motor de Almacenamiento
-- Particiones 
-- Administración de Usuarios 
-- Seguridad
+## MySQL Database Server Editions
+<img 
+     src="../assets/mysql/img/server_editions.jpg"
+     alt="Server Process"
+     style="margin: 15px;"
+/> 
 </script>
 </section>
+
 <section data-markdown >
 <script type="text/template">
-##<span class="mysql-color">Map Dia 4</span>
-- Mantenimiento de Tablas
-- Exportar e Importar datos
-- Programación dentro de MySQL
-- Backup y Recuperación
+## MySQL Tools
+- Graphical user interfaces to your MySQL database  
+
+- <span style="color:#e97b00">MySQL Enterprise Monitor</span> 
+ -   Web application that reduces down time, tightens security, and increases throughput
+ -   Includes MySQL Query Analyzer
+
+- <span style="color:#e97b00">MySQL Enterprise Backup</span>
+ -   Online hot, nonblocking backups
+
+- <span style="color:#e97b00">MySQL Workbench </span>
+ -  Visual database design tool that is used to efficiently design, manage, and document databases
 </script>
 </section>
-<section data-markdown >
-<script type="text/template">
-##<span class="mysql-color">Map Dia 5</span>
-- Replicación
-- Introducción a "Performance Tuning" 
-- Conclusiones
-</script>
-</section>
-</section>
+       		
+
 				
-<!-- ************************************ INTRODUCCION ************************************************** -->
-		
-		
-
-
 				
-                <section>
-                    <h2>Questions?</h2>
-                    <p>Send me a tweet <a href="https://twitter.com/agustincl" target="_blank">@Agustincl</a>!</p>
-                </section>
 
-                <section>
-                    <h2>Fork it!</h2>
-                    <p>
-                        You can find these slides on GitHub at
-                        <a href="https://github.com/agustincl/mysqlfordba" target="_blank">
-                            https://github.com/agustincl/mysqlfordba
-                        </a>
-                    </p>
-                </section>
+<!-- ************************************ END ************************************************** -->
+<!-- ************************************ END ************************************************** -->
 
-                <section>
-                    <h2>Thanks for listening!</h2>
-                    <a href="https://joind.in/92751" target="_blank">https://joind.in/92751</a>
-                    <br/>
-                    <img src="http://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://joind.in/92751" alt="Joind.in talk page QR code"/>
-                </section>
 
 			</div>
 
